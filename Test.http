@@ -33,18 +33,21 @@ GET http://localhost:8080/employee/find?firstName=Ivan&lastName=Petrov&salary=0&
 ###
 
 
-
 GET http://localhost:8080/employee
 ###
 
-GET http://localhost:8080/department/max-salary?departmentId=2
+
+GET http://localhost:8080/department/employees
 ###
 
-GET http://localhost:8080/department/min-salary?departmentId=1
+GET http://localhost:8080/department/2/salary/max
 ###
 
-GET http://localhost:8080/department/all?departmentId=2
+GET http://localhost:8080/department/1/salary/min
 ###
 
-GET http://localhost:8080/department/all
+GET http://localhost:8080/department/2/employees
+###
+
+GET http://localhost:8080/department/1/salary/sum
 ###

@@ -15,4 +15,6 @@ public interface DepartmentService {
 
     Map<Integer, List<Employee>> printAllSortedByDepartment();
 
+    String printSalaryPerDepartment(int department);
+
 }
