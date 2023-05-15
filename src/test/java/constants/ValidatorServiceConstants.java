@@ -1,6 +1,6 @@
 package constants;
 
-public class ValidatorConstants {
+public class ValidatorServiceConstants {
     public static final String GOOD_INPUT = "Ivan";
     public static final String BAD_INPUT_1 = " Ivan";
     public static final String BAD_INPUT_2 = "I_van";

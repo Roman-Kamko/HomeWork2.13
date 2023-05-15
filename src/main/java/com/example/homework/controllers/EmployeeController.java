@@ -22,7 +22,7 @@ public class EmployeeController {
     @GetMapping(path = "/add")
     public Employee add(@RequestParam String firstName,
                         @RequestParam String lastName,
-                        @RequestParam BigDecimal salary,
+                        @RequestParam String salary,
                         @RequestParam int department) {
         return emplService.add(firstName, lastName, salary, department);
     }
@@ -30,7 +30,7 @@ public class EmployeeController {
     @GetMapping(path = "/remove")
     public Employee remove(@RequestParam String firstName,
                            @RequestParam String lastName,
-                           @RequestParam BigDecimal salary,
+                           @RequestParam String salary,
                            @RequestParam int department) {
         return emplService.remove(firstName, lastName, salary, department);
     }
@@ -38,7 +38,7 @@ public class EmployeeController {
     @GetMapping(path = "/find")
     public Employee find(@RequestParam String firstName,
                          @RequestParam String lastName,
-                         @RequestParam BigDecimal salary,
+                         @RequestParam String salary,
                          @RequestParam int department) {
         return emplService.find(firstName, lastName, salary, department);
     }

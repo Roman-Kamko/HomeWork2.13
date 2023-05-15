@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static constants.ValidatorConstants.*;
+import static constants.ValidatorServiceConstants.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ValidatorServiceImplTest {
