@@ -4,6 +4,7 @@ import com.example.homework.services.DepartmentService;
 import com.example.homework.model.Employee;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/{id}/salary/sum")
-    public String printSalaryPerDepartment(@PathVariable(value = "id") int departmentId) {
+    public BigDecimal printSalaryPerDepartment(@PathVariable(value = "id") int departmentId) {
         return depService.printSalaryPerDepartment(departmentId);
     }
 }

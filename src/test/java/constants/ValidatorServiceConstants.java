@@ -7,5 +7,4 @@ public class ValidatorServiceConstants {
     public static final String BAD_INPUT_3 = "Iv-an";
     public static final String BAD_INPUT_4 = "Ivan1";
     public static final String BAD_INPUT_5 = "";
-
 }

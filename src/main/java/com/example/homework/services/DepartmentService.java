@@ -2,6 +2,7 @@ package com.example.homework.services;
 
 import com.example.homework.model.Employee;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,6 @@ public interface DepartmentService {
 
     Map<Integer, List<Employee>> printAllSortedByDepartment();
 
-    String printSalaryPerDepartment(int department);
+    BigDecimal printSalaryPerDepartment(int department);
 
 }

@@ -2,7 +2,6 @@ package com.example.homework.services.impl;
 
 import com.example.homework.exceptions.InvalidInputException;
 import com.example.homework.model.Employee;
-import com.example.homework.exceptions.EmployeeNotFoundException;
 import com.example.homework.services.DepartmentService;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeServiceImpl.getEmployees().stream()
                 .filter(employee -> employee.getDepartment() == department)
                 .max(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(EmployeeNotFoundException::new);
+                .orElseThrow(InvalidInputException::new);
     }
 
     @Override
@@ -35,7 +34,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeServiceImpl.getEmployees().stream()
                 .filter(employee -> employee.getDepartment() == department)
                 .min(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(EmployeeNotFoundException::new);
+                .orElseThrow(InvalidInputException::new);
     }
 
     @Override
@@ -52,15 +51,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public String printSalaryPerDepartment(int department) {
+    public BigDecimal printSalaryPerDepartment(int department) {
         BigDecimal sum = employeeServiceImpl.getEmployees().stream()
                 .filter(employee -> employee.getDepartment() == department)
                 .map(Employee::getSalary)
                 .reduce(BigDecimal::add)
                 .orElseThrow(InvalidInputException::new);
-        return "Сумма зарплат по департаменту " +
-                department +
-                " составляет " +
-                sum.setScale(2, RoundingMode.HALF_UP);
+        return sum.setScale(2, RoundingMode.HALF_UP);
     }
 }

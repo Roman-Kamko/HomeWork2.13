@@ -2,7 +2,6 @@ package constants;
 
 import com.example.homework.model.Employee;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class EmployeeServiceConstants {
@@ -12,6 +11,6 @@ public class EmployeeServiceConstants {
     public static final Employee EMP_4 = new Employee("Rrrr", "Rrrr", "13000", 3);
     public static final Employee EMP_5 = new Employee("Tttt", "Tttt", "14000", 3);
 
-    public static final List<Employee> EMP_LIST = List.of(EMP_1, EMP_2, EMP_3, EMP_4);
-    public static final List<Employee> EMP_LIST_2 = List.of(EMP_1, EMP_2, EMP_3, EMP_4, EMP_5);
+    public static final List<Employee> EMP_LIST_1 = List.of(EMP_1, EMP_2, EMP_3, EMP_4);
+    public static final List<Employee> EMP_LIST_2 = List.of(EMP_1, EMP_2);
 }

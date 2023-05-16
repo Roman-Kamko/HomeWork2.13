@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeServiceImplTest {
     @Mock
     private ValidatorService validatorMock;
-    // без этого не пашет тест shouldReturnCollectionOfEmployeeWhenGetEmployeesCalled,
+    // без этого не пашет тест shouldReturnCorrectCollectionOfEmployeeWhenGetEmployeesCalled,
     // ругается что ValidatorService is null)
     @InjectMocks
     private EmployeeServiceImpl out;
@@ -35,9 +35,9 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void shouldReturnCollectionOfEmployeeWhenGetEmployeesCalled() {
+    void shouldReturnCorrectCollectionOfEmployeeWhenGetEmployeesCalled() {
         Collection<Employee> actual = out.getEmployees();
-        assertThat(actual).containsExactlyInAnyOrderElementsOf(EMP_LIST);
+        assertThat(actual).containsExactlyInAnyOrderElementsOf(EMP_LIST_1);
     }
 
     @Test
@@ -45,6 +45,7 @@ class EmployeeServiceImplTest {
         boolean actual = out.getEmployees().contains(EMP_1);
         assertTrue(actual);
     }
+
     @Test
     void shouldReturnCorrectEmployeeWhenAddCalled() {
         Employee actual = out.add("Tttt", "Tttt", "14000", 3);
