@@ -2,7 +2,6 @@ package com.example.homework.services;
 
 import com.example.homework.model.Employee;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 
 public interface EmployeeService {
@@ -12,5 +11,5 @@ public interface EmployeeService {
 
     Employee find(String firstName, String lastName, String salary, int department);
 
-    Collection<Employee> printAll();
+    Collection<Employee> getEmployees();
 }

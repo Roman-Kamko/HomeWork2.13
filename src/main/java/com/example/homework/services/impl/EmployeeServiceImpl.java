@@ -22,12 +22,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.validatorService = validatorService;
     }
 
-    public Collection<Employee> getEmployees() {
-        return Collections.unmodifiableCollection(employees.values());
-    }
-
     private String getKey(Employee employee) {
         return employee.getFirstName() + " " + employee.getLastName();
+    }
+
+    @Override
+    public Collection<Employee> getEmployees() {
+        return Collections.unmodifiableCollection(employees.values());
     }
 
     @Override
@@ -68,10 +69,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         throw new EmployeeNotFoundException();
-    }
-
-    @Override
-    public Collection<Employee> printAll() {
-        return Collections.unmodifiableCollection(employees.values());
     }
 }
