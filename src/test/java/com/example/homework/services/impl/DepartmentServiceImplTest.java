@@ -36,7 +36,7 @@ class DepartmentServiceImplTest {
     @Test
     void shouldThrowInvalidInputExceptionWhenFindMaxSalaryFromDepartmentCalled() {
         assertThrows(InvalidInputException.class, () -> out.findMaxSalaryFromDepartment(DEP_4));
-        // haven't any employees in constants.EmployeeServiceConstants.EMP_LIST with department 4
+        // haven't any employees in constants.EmployeeServiceConstants.EMP_LIST_1 with department 4
     }
 
     @Test
@@ -47,7 +47,7 @@ class DepartmentServiceImplTest {
     @Test
     void shouldThrowInvalidInputExceptionWhenFindMinSalaryFromDepartmentCalled() {
         assertThrows(InvalidInputException.class, () -> out.findMinSalaryFromDepartment(DEP_4));
-        // haven't any employees in constants.EmployeeServiceConstants.EMP_LIST with department 4
+        // haven't any employees in constants.EmployeeServiceConstants.EMP_LIST_1 with department 4
     }
 
     @Test
