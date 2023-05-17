@@ -2,11 +2,9 @@ package com.example.homework.controllers;
 
 import com.example.homework.services.DepartmentService;
 import com.example.homework.model.Employee;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -20,23 +18,28 @@ public class DepartmentController {
         this.depService = depService;
     }
 
-    @GetMapping(path = "/max-salary")
-    public Employee findMaxSalaryFromDepartment(@RequestParam int departmentId) {
+    @GetMapping(path = "/{id}/salary/max")
+    public Employee findMaxSalaryFromDepartment(@PathVariable(value = "id") int departmentId) {
         return depService.findMaxSalaryFromDepartment(departmentId);
     }
 
-    @GetMapping(path = "/min-salary")
-    public Employee findMinSalaryFromDepartment(@RequestParam int departmentId) {
+    @GetMapping(path = "/{id}/salary/min")
+    public Employee findMinSalaryFromDepartment(@PathVariable(value = "id") int departmentId) {
         return depService.findMinSalaryFromDepartment(departmentId);
     }
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/employees")
     public Map<Integer, List<Employee>> printAllFromDepartment() {
-            return depService.printAllSortedByDepartment();
+        return depService.printAllSortedByDepartment();
     }
 
-    @GetMapping(path = "/all", params = "departmentId")
-    public Collection<Employee> printAllFromDepartment(@RequestParam Integer departmentId) {
+    @GetMapping(path = "/{id}/employees")
+    public Collection<Employee> printAllFromDepartment(@PathVariable(value = "id") int departmentId) {
         return depService.printAllFromDepartment(departmentId);
+    }
+
+    @GetMapping("/{id}/salary/sum")
+    public BigDecimal printSalaryPerDepartment(@PathVariable(value = "id") int departmentId) {
+        return depService.printSalaryPerDepartment(departmentId);
     }
 }

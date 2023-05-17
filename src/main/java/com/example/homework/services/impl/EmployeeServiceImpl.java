@@ -22,16 +22,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.validatorService = validatorService;
     }
 
-    public Collection<Employee> getEmployees() {
-        return Collections.unmodifiableCollection(employees.values());
-    }
-
     private String getKey(Employee employee) {
         return employee.getFirstName() + " " + employee.getLastName();
     }
 
     @Override
-    public Employee add(String firstName, String lastName, BigDecimal salary, int department) {
+    public Collection<Employee> getEmployees() {
+        return Collections.unmodifiableCollection(employees.values());
+    }
+
+    @Override
+    public Employee add(String firstName, String lastName, String salary, int department) {
 
         validatorService.checkInput(firstName, lastName);
         Employee employee = new Employee(firstName, lastName, salary, department);
@@ -45,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee remove(String firstName, String lastName, BigDecimal salary, int department) {
+    public Employee remove(String firstName, String lastName, String salary, int department) {
 
         validatorService.checkInput(firstName, lastName);
         Employee employee = new Employee(firstName, lastName, salary, department);
@@ -58,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee find(String firstName, String lastName, BigDecimal salary, int department) {
+    public Employee find(String firstName, String lastName, String salary, int department) {
 
         validatorService.checkInput(firstName, lastName);
         Employee employee = new Employee(firstName, lastName, salary, department);
@@ -68,10 +69,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         throw new EmployeeNotFoundException();
-    }
-
-    @Override
-    public Collection<Employee> printAll() {
-        return Collections.unmodifiableCollection(employees.values());
     }
 }

@@ -12,7 +12,7 @@ public class Employee {
     private BigDecimal salary;
     private int department;
 
-    public Employee(String firstName, String lastName, BigDecimal salary, int department) {
+    public Employee(String firstName, String lastName, String salary, int department) {
         this.firstName = capitalize(firstName.toLowerCase());
         this.lastName = capitalize(lastName.toLowerCase());
         this.salary = new BigDecimal(String.valueOf(salary));
